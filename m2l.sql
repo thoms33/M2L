@@ -2418,7 +2418,6 @@ ALTER TABLE `commune`
 COMMIT;
 
 
-
 CREATE TABLE `formation` (
   `idForma` INT PRIMARY KEY,
   `intitule` varchar(50) NOT NULL,
