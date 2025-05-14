@@ -1,0 +1,390 @@
+@charset "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: sans-serif;
+}
+
+/****************************************************/
+/* styles pour le conteneur                         */
+/****************************************************/
+.conteneur {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 0;
+}
+
+/****************************************************/
+/* styles pour le header                            */
+/****************************************************/
+header {
+    height: 200px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+/****************************************************/
+/* styles pour la zone centrale de la page          */
+/****************************************************/
+main {
+    margin: 0;
+    padding: 0;
+    min-height: 600px;
+    background-color: #f0f0f0;
+    font-size: 0;
+    margin-top: 200px;
+}
+
+/****************************************************/
+/* styles pour le footer                            */
+/****************************************************/
+footer {
+    background-color: skyblue;
+    height: 120px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+footer p {
+    padding: 15px 15px 0 15px;
+}
+
+/****************************************************/
+/* styles pour le logo de M2L                       */
+/****************************************************/
+.logo {
+    display: inline-block;
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
+}
+
+/****************************************************/
+/* styles pour le bandeau                           */
+/****************************************************/
+.bandeau {
+    height: 80%;
+    background: linear-gradient(
+            rgba(0, 0, 150, 0.5),
+            rgba(0, 0, 200, 0.6)
+        ),
+        url("../images/header2.jpg");
+}
+
+/****************************************************/
+/* styles pour le menu principal                    */
+/****************************************************/
+nav.menuPrincipal {
+    text-align: right;
+    background-color: skyblue;
+    font-size: 0;
+}
+nav.menuPrincipal ul {
+    display: inline;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica;
+}
+nav.menuPrincipal ul li {
+    display: table-cell;
+    text-align: center;
+    width: 140px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+nav.menuPrincipal ul li a {
+    text-decoration: none;
+    color: white;
+}
+nav.menuPrincipal ul li a:hover {
+    color: grey;
+}
+nav.menuPrincipal ul li.actif {
+    background-color: ivory;
+    color: black;
+    padding: 10px;
+}
+
+/****************************************************/
+/* styles pour la page d'accueil                    */
+/****************************************************/
+.texteAccueil {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 17px;
+}
+.texteAccueil h1 {
+    padding: 20px 0;
+    text-align: center;
+}
+.texteAccueil p {
+    padding-top: 20px;
+    text-align: justify;
+}
+.images {
+    text-align: center;
+    padding-top: 30px;
+}
+.images img {
+    height: 150px;
+    margin: 10px;
+    padding-bottom: 100px;
+}
+
+/****************************************************/
+/* styles pour la zone navigation gauche            */
+/****************************************************/
+a.anchor {
+    display: block;
+    position: relative;
+    top: -200px;
+    visibility: hidden;
+}
+
+/****************************************************/
+/* styles pour la structure générale                */
+/****************************************************/
+.bloc-section {
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.titre-section {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: skyblue;
+    color: white;
+    padding: 10px;
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+/****************************************************/
+/* styles pour les blocs de ligues                  */
+/****************************************************/
+.grid-blocs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;    /* empêche le retour à la ligne */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.bloc-item {
+    display: inline-block;
+    min-width: 200px;     /* largeur minimale */
+    max-width: 220px;     /* largeur maximale */
+    padding: 20px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+.bloc-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/****************************************************/
+/* styles pour le bloc d’information sélectionnée   */
+/****************************************************/
+.bloc-info {
+    width: 60%;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: left;
+}
+.bloc-info h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+.bloc-info input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+/* Remise à taille normale du texte dans les blocs */
+.bloc-section,
+.bloc-item,
+.bloc-info {
+  font-size: 16px;  
+}
+
+
+main {
+  font-size: initial;
+}
+/*  Pour la page formations : autoriser le retour à la ligne */
+.grid-blocs {
+    flex-wrap: wrap;   /* wrap au lieu de nowrap */
+}
+
+/*  Limiter le nombre de blocs par ligne (max-3),
+      puis passer à la ligne suivante */
+.bloc-item {
+    flex: 0 0 calc(33.333% - 40px);
+    /* 3 colonnes max, moins le gap de 20px des deux côtés */
+    box-sizing: border-box;
+}
+
+/*  Remettre le texte à taille normale */
+.bloc-section,
+.bloc-item,
+.bloc-info {
+    font-size: 16px;
+}
+
+/*  Espacer un peu le footer des contenus */
+footer {
+    padding-top: 20px;
+}
+
+/*  rendre beau les boutons d’action */
+.bloc-info input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.bloc-info input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.btn-supprimer {
+    display: inline-block;
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 16px;
+    margin: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-supprimer:hover {
+    background-color: #c82333;
+}
+
+.bloc-section .bloc-info {
+  width: 300px;
+  margin: 20px auto;
+}
+/* ─────────────────────────────────────────────────── */
+/*  Uniformisation des inputs dans .bloc-info         */
+/* ─────────────────────────────────────────────────── */
+
+.bloc-info label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.bloc-info input[type="text"],
+.bloc-info input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bloc-info input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+
+/* ─────────────────────────────────────────────────── */
+/*  Colonnes gauche / droite pour Services & Locaux /!\reparer car j'ai tout casser avec le css des autres pages !!!!  */
+/* ─────────────────────────────────────────────────── */
+
+main {
+  /* rétablit un flux normal de texte à l’intérieur de main */
+  font-size: initial;
+}
+
+/* wrapper flex pour main quand on a deux colonnes */
+main > .gauche,
+main > .droite {
+  display: inline-block;    /* ou float: left; si vous préférez */
+  vertical-align: top;
+  font-size: 16px;          /* remet du texte lisible */
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Ajuste les largeurs */
+main > .gauche {
+  width: 30%;
+}
+
+main > .droite {
+  width: 65%;
+  margin-left: 5%;          /* ou simplement width: 68%; pour centrer */
+}
+
+/* optionnel :  ajout d'un fond pour distinguer */
+main > .gauche {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+main > .droite {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* pour détruire le margin-top imposé pour main */
+main {
+  margin-top: 200px; /* a conservez si header fixe de 200px */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ENFIN FINI !!  il est ???H du matin.. au lit/*

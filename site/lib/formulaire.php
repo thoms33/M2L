@@ -41,7 +41,7 @@ class Formulaire{
 	}
 	
 	
-	public function creerInputTexte($unNom, $unId, $uneValue , $required , $placeholder , $pattern){
+	public function creerInputTexte($unNom, $unId, $uneValue , $required , $placeholder , $pattern, $readOnly = true, $margin = 0){
 		$composant = "<input type = 'text' name = '" . $unNom . "' id = '" . $unId . "' ";
 		if (!empty($uneValue)){
 			$composant .= "value = '" . $uneValue . "' ";
@@ -55,6 +55,11 @@ class Formulaire{
 		if (!empty($pattern)){
 			$composant .= "pattern = '" . $pattern . "' ";
 		}
+		if($readOnly){
+			$composant .= "readonly ";
+		}
+
+		$composant .= "style = 'margin-bottom:" . $margin . "px;'";
 		$composant .= "/>";
 		return $composant;
 	}
@@ -82,9 +87,9 @@ class Formulaire{
 
 	public function creerSelect($unNom, $unId, $unLabel, $options){
 		$composant = "<select  name = '" . $unNom . "' id = '" . $unId . "' >";
-		foreach ($options as $option){
-			$composant .= "<option value = " ;
-		}
+		foreach ($options as $key => $value){
+        	$composant .= "<option value='" . htmlspecialchars($value) . "'>" . htmlspecialchars($key) . "</option>";
+    	}
 		$composant .= "</select></td></tr>";
 		return $composant;
 	}	
