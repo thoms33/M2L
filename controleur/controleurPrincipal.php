@@ -2,6 +2,26 @@
 if(isset($_GET['m2lMP'])){
 	$_SESSION['m2lMP']= $_GET['m2lMP'];
 }
+else if(isset($_POST['submitConnex'])){
+	$isVerified = utilisateurDA0::verifyUser($_POST['login'], $_POST['mdp']);
+	$statut = utilisateurDAO::getTypeUser($_POST['login']);
+	$_SESSION['identifiant'] = $_POST['login'];
+	if($isVerified){
+		if($statut == 'Salarie'){
+
+		}
+		elseif($statut == 'RH'){
+	
+		}
+		elseif($statut == 'Secretaire')
+		{
+	
+		}
+		elseif($statut == 'Benevole'){
+	
+		}
+	}
+}
 else
 {
 	if(!isset($_SESSION['m2lMP'])){
