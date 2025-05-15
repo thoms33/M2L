@@ -14,6 +14,21 @@ $demandes     = null;
 $utilisateurs = null;
 $SelectedBody = null;
 
+/* 0bis) RH → suppression définitive d’une demande */
+if (isset($_POST['btnSupprimerDemandeRh'])
+    && $_SESSION['typeUser'] === 'rh'
+    && isset($_POST['idFormation'])
+    && isset($_SESSION['idUtilisateurSelectionne'])
+) {
+    // supprime en base et redirige vers la liste RH
+    demandesDAO::supprimerDemande(
+        intval($_POST['idFormation']),
+        intval($_SESSION['idUtilisateurSelectionne'])
+    );
+    header('Location: index.php?m2lMP=demandes');
+    exit;
+}
+
 // 1) Clic “Voir les demandes”
 if (isset($_POST['btnVoirDemandes'])) {
     // 1a) Intervenant : sa propre liste
